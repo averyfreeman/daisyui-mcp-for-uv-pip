@@ -1,0 +1,4 @@
+# GitHub discovers workflow files under .github/workflows/.
+# The canonical tagged PyPI publisher is .github/workflows/publish.yml.
+# This compatibility note preserves the requested singular path without
+# creating a second, undiscoverable publishing workflow.
