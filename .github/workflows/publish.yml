@@ -1,0 +1,39 @@
+name: Publish to PyPI
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Build and publish the tagged release
+    runs-on: ubuntu-latest
+    environment:
+      name: release
+      url: https://pypi.org/p/daisyui-mcp
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Check out the tagged source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: latest
+      - name: Set up Python
+        run: uv python install 3.12
+      - name: Install release tooling
+        run: uv sync --locked --extra dev
+      - name: Build the tagged distributions
+        run: uv run --extra dev python -m build
+      - name: Validate metadata
+        run: uv run --extra dev twine check dist/*
+      - name: Publish with Trusted Publishing
+        uses: pypa/gh-action-pypi-publish@release/v1
