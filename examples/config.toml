@@ -1,0 +1,13 @@
+# Codex profile layer for the daisyui-mcp stdio server.
+#
+# Reusable profile workflow:
+# 1. Copy this file to $CODEX_HOME/daisyui-mcp.config.toml.
+# 2. Run `codex --profile daisyui-mcp` from the project directory.
+#
+# One-time global registration is an alternative to this profile:
+# codex mcp add daisyui-mcp -- daisyui-mcp serve
+
+[mcp_servers.daisyui-mcp]
+command = "daisyui-mcp"
+args = ["serve"]
+enabled = true

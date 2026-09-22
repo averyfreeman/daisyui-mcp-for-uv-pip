@@ -1,7 +1,7 @@
 # Releasing
 
-The package uses setuptools-scm, so the tag is the release version. The first
-release is v0.1.0.
+The package uses setuptools-scm, so the tag is the release version. The initial
+release was v0.1.0; the current follow-up release is v0.2.0.
 
 ## Local release check
 
@@ -29,12 +29,12 @@ No long-lived PyPI token is required by the workflow. The PyPI project must
 exist or be created by the first trusted publisher configuration, and the
 release environment must be available in repository settings.
 
-## First release
+## Tagged release
 
 ~~~bash
-git tag -a v0.1.0 -m "Release v0.1.0"
+git tag -a v0.2.0 -m "Release v0.2.0"
 git push origin main
-git push origin v0.1.0
+git push origin v0.2.0
 ~~~
 
 The workflow checks out the tag, builds from that tag, validates metadata, and
