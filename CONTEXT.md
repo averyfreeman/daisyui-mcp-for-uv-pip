@@ -23,3 +23,15 @@ _Avoid_: Feed, endpoint
 **Project-local installation**:
 An installation of an official skill into the current project’s designated skills directory.
 _Avoid_: Global installation, user installation
+
+**Codex profile**:
+A named runtime configuration layer selected explicitly for a Codex session.
+_Avoid_: Project-local configuration
+
+**Profile template**:
+A shareable configuration artifact that must be installed into the Codex runtime before it can be selected.
+_Avoid_: Automatically active project configuration
+
+**MCP registration**:
+A configured connection to one MCP server whose tools and resources form one capability surface.
+_Avoid_: One registration per tool
