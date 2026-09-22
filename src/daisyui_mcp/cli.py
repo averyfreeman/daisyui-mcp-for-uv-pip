@@ -7,6 +7,7 @@ from collections.abc import Sequence
 from pathlib import Path
 
 from . import __version__
+from .config import install_codex_config
 from .skills import default_skill_target, install_official_skills
 
 
@@ -33,6 +34,20 @@ def build_parser() -> argparse.ArgumentParser:
     install.add_argument("--target", type=Path, help="explicit installation directory")
     install.add_argument("--timeout", type=float, default=20.0)
     skills_subparsers.add_parser("path", help="show the default project-local target")
+    config = subparsers.add_parser(
+        "config",
+        help="manage the Codex MCP profile template",
+    )
+    config_subparsers = config.add_subparsers(dest="config_command")
+    config_install = config_subparsers.add_parser(
+        "install",
+        help="install a Codex profile template in the current directory",
+    )
+    config_install.add_argument(
+        "--force",
+        action="store_true",
+        help="replace an existing daisyui-mcp.config.toml",
+    )
     subparsers.add_parser("refresh", help="refresh official component documentation")
     subparsers.add_parser("status", help="show content origin and counts")
     return parser
@@ -64,6 +79,22 @@ def main(argv: Sequence[str] | None = None) -> int:
             )
             return 0
         parser.error("choose a skills subcommand")
+    if arguments.command == "config":
+        if arguments.config_command == "install":
+            try:
+                destination = install_codex_config(force=arguments.force)
+            except FileExistsError as error:
+                parser.error(str(error))
+            print(
+                f"Installed Codex profile template at {destination}.\n"
+                "Copy it to $CODEX_HOME/daisyui-mcp.config.toml "
+                "(usually ~/.codex/daisyui-mcp.config.toml), then run "
+                "`codex --profile daisyui-mcp` from this project directory.\n"
+                "Alternatively, register it globally with: "
+                "`codex mcp add daisyui-mcp -- daisyui-mcp serve`."
+            )
+            return 0
+        parser.error("choose a config subcommand")
     if arguments.command == "refresh":
         from .content import DaisyUIContentStore
 

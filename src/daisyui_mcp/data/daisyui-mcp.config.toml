@@ -1,0 +1,8 @@
+# Codex profile layer for the daisyui-mcp stdio server.
+# Copy this file to $CODEX_HOME/daisyui-mcp.config.toml, then run:
+# codex --profile daisyui-mcp
+
+[mcp_servers.daisyui-mcp]
+command = "daisyui-mcp"
+args = ["serve"]
+enabled = true

@@ -5,19 +5,34 @@ documentation and agent skills. It is distributed as a normal Python wheel,
 works with Python 3.10+, and keeps a bundled offline snapshot for predictable
 development.
 
-## Install
+Published package: https://pypi.org/project/daisyui-mcp/
 
-Install the MCP server with pip:
+## Install with uv
+
+Install the MCP server as a user tool:
+
+~~~bash
+uv tool install daisyui-mcp
+~~~
+
+For optional skill-management dependencies:
+
+~~~bash
+uv tool install "daisyui-mcp[skills]"
+~~~
+
+## Install with pip
+
+Install the MCP server into the active Python environment:
 
 ~~~bash
 python -m pip install daisyui-mcp
 ~~~
 
-Install the server and its optional skill-management dependency:
+For optional skill-management dependencies:
 
 ~~~bash
 python -m pip install "daisyui-mcp[skills]"
-uv tool install "daisyui-mcp[skills]"
 ~~~
 
 For local development, sync the committed lockfile:
@@ -75,6 +90,30 @@ The default target is ./.agents/skills/daisyui. The installer fetches the
 official DaisyUI skill tree, validates archive paths, and falls back to the
 packaged SKILL.md if the network is unavailable.
 
+## Configure Codex
+
+Install a reusable Codex profile template in the current project:
+
+~~~bash
+daisyui-mcp config install
+~~~
+
+Copy `daisyui-mcp.config.toml` to
+`$CODEX_HOME/daisyui-mcp.config.toml` (usually `~/.codex/`), then run:
+
+~~~bash
+codex --profile daisyui-mcp
+~~~
+
+The profile starts one stdio MCP server; its complete tools and resources are
+available after startup. As a one-time global alternative, run:
+
+~~~bash
+codex mcp add daisyui-mcp -- daisyui-mcp serve
+~~~
+
+See [examples/config.toml](examples/config.toml) for the equivalent TOML.
+
 ## DaisyUI source and refresh behavior
 
 The runtime specification follows the official DaisyUI installation guide:
@@ -104,7 +143,7 @@ uv run --extra dev twine check dist/*
 ~~~
 
 The project uses a src layout, setuptools with setuptools-scm, strict MyPy,
-Ruff, pytest, and a committed uv.lock. Git tags such as v0.1.0 determine
+Ruff, pytest, and a committed uv.lock. Git tags such as v0.2.0 determine
 the package version used by the release workflow.
 
 ## License
