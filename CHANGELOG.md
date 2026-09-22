@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.1 - 2026-09-22
+
+- Added upstreaming analysis for the renewed DaisyUI MCP fork.
+- Expanded README API documentation with MCP tool, resource, and Python examples.
+- Clarified single-server Codex registration and project-scoped profile installation.
+- Aligned release documentation and analysis references with the v0.2.1 tag.
+
 ## 0.2.0 - 2026-09-22
 
 - Added a safe CLI installer for the reusable Codex DaisyUI MCP profile.

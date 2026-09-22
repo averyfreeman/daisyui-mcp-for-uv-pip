@@ -5,7 +5,7 @@ documentation and agent skills. It is distributed as a normal Python wheel,
 works with Python 3.10+, and keeps a bundled offline snapshot for predictable
 development.
 
-Published package: https://pypi.org/project/daisyui-mcp/
+Published package: [daisyui-mcp on PyPI](https://pypi.org/project/daisyui-mcp/)
 
 ## Install with uv
 
@@ -75,8 +75,61 @@ Resources:
 - daisyui://skills
 - daisyui://install
 - daisyui://status
-- daisyui://component/{name}
-- daisyui://skill/{name}
+
+The server exposes the complete surface through one stdio MCP registration. No
+separate registration is required for individual tools or resources.
+
+## API examples
+
+The server speaks MCP over stdio. After registering `daisyui-mcp`, an MCP
+client can call any of the following tools through that one connection. The
+second column shows the JSON arguments for each tool call:
+
+| Tool | Arguments | Demonstration |
+| --- | --- | --- |
+| `list_components` | `{}` | Discover the available component names and summaries. |
+| `get_component` | `{"name": "button"}` | Read the complete Markdown documentation for one component. |
+| `search_daisyui` | `{"query": "modal"}` | Search component and official skill metadata. |
+| `list_skills` | `{}` | List the bundled official DaisyUI skills. |
+| `get_skill` | `{"name": "daisyui"}` | Read one official skill document. |
+| `refresh_daisyui` | `{}` | Refresh official component content with cached fallback. |
+| `install_daisyui_skills` | `{"target": "./.agents/skills/daisyui"}` | Install the official skill tree into a project-local target. Omit `target` to use the default. |
+| `daisyui_status` | `{}` | Report content origin, counts, and refresh time. |
+
+For example, a client can call `search_daisyui` with:
+
+~~~json
+{"query": "modal"}
+~~~
+
+Then it can call `get_component` with the selected component name:
+
+~~~json
+{"name": "modal"}
+~~~
+
+The registered resources can be read directly by URI:
+
+- `daisyui://components` — the component index.
+- `daisyui://skills` — the official skill index.
+- `daisyui://install` — DaisyUI installation guidance.
+- `daisyui://status` — current content status.
+
+The stable importable compatibility API is also available for Python
+integrations:
+
+~~~python
+from daisyui_mcp.server import get_component, list_components
+
+print(list_components())
+print(get_component("button"))
+~~~
+
+Example requests to make from Codex after configuration include:
+
+- “List the available DaisyUI components and show the button documentation.”
+- “Search DaisyUI for modal-related guidance, then summarize the best match.”
+- “Install the official DaisyUI skills into this project.”
 
 The MCP server can install skills into the current project with an explicit
 tool call. The CLI equivalent is:
@@ -98,15 +151,19 @@ Install a reusable Codex profile template in the current project:
 daisyui-mcp config install
 ~~~
 
-Copy `daisyui-mcp.config.toml` to
-`$CODEX_HOME/daisyui-mcp.config.toml` (usually `~/.codex/`), then run:
+The command writes `daisyui-mcp.config.toml` to the current directory. Copy it
+to `$CODEX_HOME/daisyui-mcp.config.toml` (usually
+`~/.codex/daisyui-mcp.config.toml`), then run Codex from this project folder:
 
 ~~~bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}"
+cp daisyui-mcp.config.toml "${CODEX_HOME:-$HOME/.codex}/daisyui-mcp.config.toml"
 codex --profile daisyui-mcp
 ~~~
 
 The profile starts one stdio MCP server; its complete tools and resources are
-available after startup. As a one-time global alternative, run:
+available after startup. As a one-time global alternative, register the same
+server directly:
 
 ~~~bash
 codex mcp add daisyui-mcp -- daisyui-mcp serve
@@ -143,7 +200,7 @@ uv run --extra dev twine check dist/*
 ~~~
 
 The project uses a src layout, setuptools with setuptools-scm, strict MyPy,
-Ruff, pytest, and a committed uv.lock. Git tags such as v0.2.0 determine
+Ruff, pytest, and a committed uv.lock. Git tags such as v0.2.1 determine
 the package version used by the release workflow.
 
 ## License
