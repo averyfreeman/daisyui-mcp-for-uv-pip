@@ -1,7 +1,7 @@
 # Releasing
 
 The package uses setuptools-scm, so the tag is the release version. The initial
-release was v0.1.0; the current follow-up release is v0.2.0.
+release was v0.1.0; the current follow-up release is v0.2.1.
 
 ## Local release check
 
@@ -32,9 +32,9 @@ release environment must be available in repository settings.
 ## Tagged release
 
 ~~~bash
-git tag -a v0.2.0 -m "Release v0.2.0"
+git tag -a v0.2.1 -m "Release v0.2.1"
 git push origin main
-git push origin v0.2.0
+git push origin v0.2.1
 ~~~
 
 The workflow checks out the tag, builds from that tag, validates metadata, and
