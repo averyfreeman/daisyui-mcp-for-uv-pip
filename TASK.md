@@ -1,6 +1,6 @@
 ## Goal
 
-Renew the DaisyUI MCP server from the edited source snapshot, align it with the current DaisyUI 5 documentation and official skills, make the Python package fully typed and pip/uv-installable, and prepare a verified PyPI release for `daisyui-mcp`.
+Renew the DaisyUI MCP server from the edited source snapshot, align it with the current DaisyUI 5 documentation and official skills, make the Python package fully typed and pip/uv-installable, and verify distributable artifacts for local installation.
 
 ## Acceptance criteria
 
@@ -11,7 +11,7 @@ Renew the DaisyUI MCP server from the edited source snapshot, align it with the 
 - Production code, CLI code, synchronization code, and tests have complete type annotations and pass strict mypy checks.
 - Unit and integration tests cover parsing, lookup, refresh failures, cache fallback, path safety, MCP calls/resources, CLI installation, and package contents.
 - Ruff, pytest, mypy, wheel/sdist build, and twine metadata validation pass through the verification command below.
-- README, CONTEXT.md, native ADR records, CHANGELOG.md, CI workflow, and OIDC PyPI publish workflow document the supported installation and release process.
+- README, CONTEXT.md, native ADR records, CHANGELOG.md, CI workflow, and release guide document the supported installation and source-version tagging process.
 
 ## Verification
 

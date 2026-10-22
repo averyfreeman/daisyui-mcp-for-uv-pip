@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.0 - 2026-10-22
+
+- Removed the reported VirusTotal-triggering Windows/LuaJIT bundles and upstream download references from Git history.
+- Disabled automated PyPI publishing from this repository.
+
 ## 0.2.1 - 2026-09-22
 
 - Added upstreaming analysis for the renewed DaisyUI MCP fork.
