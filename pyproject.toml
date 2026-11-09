@@ -1,0 +1,12 @@
+[project]
+name = "daisyui-mcp"
+version = "0.1.0"
+description = "Local MCP server for DaisyUI component documentation"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastmcp",
+]
+
+[tool.uv]
+package = false
