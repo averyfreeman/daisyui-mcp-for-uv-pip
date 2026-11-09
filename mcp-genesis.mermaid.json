@@ -1,0 +1,81 @@
+{
+  "version": 2,
+  "title": "DaisyUI MCP project evolution",
+  "description": "Repository and capability lineage for the open-source DaisyUI MCP implementations and official Blueprint product.",
+  "diagrams": [
+    {
+      "id": "project_evolution",
+      "title": "Project evolution and capability branches",
+      "description": "This shows content and repository lineage. It is not a claim that every edge shares Git objects or commit ancestry.",
+      "accessibility": "The official DaisyUI source feeds the original two-tool documentation lineage and the separate commercial Blueprint product. Avery's project is a substantial renewal of the open-source lineage.",
+      "kind": "flowchart",
+      "data": {
+        "direction": "LR",
+        "nodes": [
+          {
+            "id": "official",
+            "label": "saadeghi/daisyui: official docs, skills, and llms.txt"
+          },
+          {
+            "id": "sidiq",
+            "label": "SidiqHadi/daisyui-mcp: 64 docs, 2 tools"
+          },
+          {
+            "id": "birdseye",
+            "label": "birdseyevue/daisyui-mcp: same runtime plus Docker"
+          },
+          {
+            "id": "iflow",
+            "label": "iFlow PyPI 0.1.1: repackaged Birdseye runtime"
+          },
+          {
+            "id": "avery",
+            "label": "Avery v0.2.1: 68 docs, 8 tools, 4 resources"
+          },
+          {
+            "id": "blueprint",
+            "label": "daisyui-blueprint: commercial staged MCP"
+          }
+        ],
+        "edges": [
+          {
+            "from": "official",
+            "to": "sidiq",
+            "label": "content source",
+            "arrow": "-->"
+          },
+          {
+            "from": "sidiq",
+            "to": "birdseye",
+            "label": "same two-tool runtime",
+            "arrow": "-.->"
+          },
+          {
+            "from": "birdseye",
+            "to": "iflow",
+            "label": "same runtime files",
+            "arrow": "-->"
+          },
+          {
+            "from": "sidiq",
+            "to": "avery",
+            "label": "adapted snapshot and renewal",
+            "arrow": "-->"
+          },
+          {
+            "from": "official",
+            "to": "avery",
+            "label": "official skill and docs source",
+            "arrow": "-->"
+          },
+          {
+            "from": "official",
+            "to": "blueprint",
+            "label": "official commercial product",
+            "arrow": "-->"
+          }
+        ]
+      }
+    }
+  ]
+}
